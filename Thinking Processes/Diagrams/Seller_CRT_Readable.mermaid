@@ -1,0 +1,124 @@
+---
+title: "Seller (Property Owner) — Representative CRT  |  Readable"
+---
+flowchart TB
+
+  %% ======================================================================
+  %% Seller_CRT_Readable.mmd
+  %% ======================================================================
+  %% Built the same way as Broker_CRT_Readable.mmd: explicit IF/THEN
+  %% chain, no synthesized trunk, provenance moved to invisible comments
+  %% at the end of this file. Causal steps stay in first person (the
+  %% Wall's own voice); OBJECTIVE / NEED / CLOUD carry the systems
+  %% vocabulary.
+  %%
+  %% NODE STYLE KEY (same convention as Broker):
+  %%   solid border  = a direct statement from the Wall
+  %%   dashed border = an inferred connecting step, not itself a Wall UDE
+  %%
+  %% STRUCTURAL NOTE: unlike Broker (an ongoing practice), Seller's
+  %% Objective is bounded to a single transaction, not a perpetual
+  %% state — a real structural difference between stakeholder types,
+  %% not an inconsistency in how Objectives are framed.
+  %%
+  %% CYCLICAL FINDING: this Cloud is not two branches that merely meet
+  %% at the bottom. The doubt underlying N2 (is my single broker's
+  %% effort adequate?) is itself what drives the seller toward N1
+  %% (appoint more brokers) — and acting on N1 is exactly what
+  %% undermines N2. Drawn as an explicit loop-back arrow, not just two
+  %% parallel chains.
+  %%
+  %% U117 and U118 (documentation time/sufficiency) did NOT resolve
+  %% into this Cloud on tracing. Flagged as tentatively terminating at
+  %% SR003 (trust-mediated transactions) rather than a hidden competing
+  %% need — presented as a flag to verify against real seller input,
+  %% not an asserted conclusion.
+  %% ======================================================================
+
+  classDef obj   fill:#e8b84b,stroke:#7a5c14,color:#2a2620,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef need  fill:#3f6f5e,stroke:#a6d9c4,color:#fff,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef wall  fill:#e9dfc3,stroke:#52493a,color:#2a2620,font-size:11px
+  classDef inferred fill:#e9dfc3,stroke:#8d8268,color:#2a2620,font-size:11px,stroke-dasharray:4 3
+  classDef shared fill:#d7d4ba,stroke:#52493a,color:#2a2620,font-size:11px,stroke-width:2px
+  classDef cloud fill:#2a1010,stroke:#e05b5b,color:#fff,font-weight:bold,stroke-width:2.5px,font-size:12px
+  classDef flag  fill:#1f1c14,stroke:#6f6450,color:#a89a78,font-size:10px,stroke-dasharray:2 2
+
+  OBJ["OBJECTIVE\nSell my property for a good outcome,\nwith confidence in the process"]:::obj
+
+  N1["NEED\nI need enough market exposure to\nattract the best possible buyers and price"]:::need
+  N2["NEED\nI need to trust that whoever represents me\nis genuinely committed to my sale"]:::need
+  OBJ --> N1
+  OBJ --> N2
+
+  %% ── N2's own doubt is what drives action toward N1 ────────────────
+  D1["I have no idea if enough people\nare actually seeing my listing"]:::wall
+  D2["I don't really know what my broker\nis doing to market my property"]:::wall
+  D3["I can't tell which marketing efforts are\nactually working and which are a waste of time"]:::wall
+  N2 --> D1
+  N2 --> D2
+  N2 --> D3
+
+  DOUBT["I can't be sure my current representation\nis enough, so I feel pressure to cover\nmy bases with more than one broker"]:::inferred
+  D1 --> DOUBT
+  D2 --> DOUBT
+  D3 --> DOUBT
+
+  %% ── Both the doubt AND the need itself push toward the same action ─
+  MULTI["I end up appointing more than\none broker just to cover my bases"]:::wall
+  N1 --> MULTI
+  DOUBT --> MULTI
+
+  %% ── Consequences of multiple, uncoordinated brokers ───────────────
+  E1["I can't tell how much effort my broker is\nreally putting in on my behalf, or which\nbroker, if any, is actually looking out for me"]:::wall
+  E2["Every broker gives me a different number\nwhen I ask what my property is worth, and I\ncan't tell if my listing feedback is real"]:::wall
+  E3["I keep having to give the same details to\ndifferent people, communication with everyone\ninterested gets overwhelming, and I can't tell\nserious buyers from casual enquiries"]:::wall
+  MULTI --> E1
+  MULTI --> E2
+  MULTI --> E3
+
+  LOST["I lose any single, consolidated\nview of my own sale"]:::inferred
+  E1 --> LOST
+  E2 --> LOST
+  E3 --> LOST
+
+  E4["I have no real idea how long it's going\nto take to sell, or how close I actually am"]:::wall
+  LOST --> E4
+
+  %% ── CLOUD ─────────────────────────────────────────────────────────
+  CLOUD["CLOUD\nEnough market exposure   ⟷   One accountable, trusted broker\n\nDoubt about a single broker's adequacy pushes\nme toward appointing more brokers. But once\nmultiple brokers are competing for the same\ncommission, none is individually accountable —\nso reach comes at the direct cost of trust, and\nstaying with one broker leaves the original\nexposure doubt unresolved and unverifiable\neither way."]:::cloud
+
+  E4 --> CLOUD
+  D1 -.->|"doubt persists either way"| CLOUD
+
+  %% ── FLAGGED: did not resolve into this Cloud ──────────────────────
+  F1["Preparing property documentation is\ntime-consuming, and I'm uncertain whether\nit will satisfy prospective buyers"]:::flag
+  F1 -.->|"tentative — likely terminates at\nSR003 (trust-mediated transactions),\nnot a hidden competing need"| SR003["SR003 (domain-wide)\nTransactions are trust-mediated"]:::flag
+
+  %% ======================================================================
+  %% TRACEABILITY (invisible when rendered — visible in source only)
+  %%   U106 → D1   U107 → D2   U108 → D3
+  %%   U111 → MULTI
+  %%   U109, U110 → E1
+  %%   U112, U113 → E2
+  %%   U114, U116, U119, U120 → E3
+  %%   U115, U122 → E4
+  %%   U117, U118 → F1 (flagged, not resolved into the Cloud)
+  %%
+  %% Assumptions sustaining the Cloud (implicit above, stated explicitly
+  %% here for methodological completeness):
+  %%   A1: One broker alone might not reach enough of the market —
+  %%       appointing more brokers is the only way I know to increase
+  %%       my chances of being seen.
+  %%   A2: When multiple brokers are all competing for the same
+  %%       commission, none has strong enough individual incentive to
+  %%       fully commit — so more brokers means less accountability,
+  %%       not more.
+  %%
+  %% FORWARD POINTER (not built yet — Seller↔Broker is Inter-Stakeholder,
+  %% out of scope per "individual seller first"): E1's content ("can't
+  %% tell how much effort my broker is putting in") looks like the
+  %% direct receiving end of Broker's own N1-side behavior (protecting
+  %% relationships/effort) from Broker_CRT_Readable.mmd. Worth checking
+  %% explicitly once the Inter-Stakeholder layer is built — not assumed
+  %% here.
+  %% ======================================================================

@@ -1,0 +1,141 @@
+---
+title: "Minimal Ecosystem CRT  |  Broker × Seller × Buyer"
+---
+flowchart TB
+
+  %% ======================================================================
+  %% Minimal_Ecosystem_CRT.mermaid
+  %% ======================================================================
+  %% ASSEMBLED, not constructed — per SIM: "the Ecosystem CRT is
+  %% assembled from validated stakeholder CRTs and validated interaction
+  %% paths, not produced by compressing all stakeholder observations
+  %% into a single diagram." Every node here is a REFERENCE to a frozen
+  %% artifact; no stakeholder CRT is redrawn or modified:
+  %%   Broker_CRT_Readable.mermaid, Seller_CRT_Readable.mermaid,
+  %%   Buyer_CRT_Readable.mermaid, Broker_Intra_Stakeholder.mermaid,
+  %%   Buyer_Intra_Stakeholder.mermaid, Broker_Seller_Interaction.mermaid,
+  %%   Broker_Buyer_Interaction.mermaid, Seller_Buyer_Interaction.mermaid
+  %%   (all COMPLETE, all frozen).
+  %%
+  %% NO new Assumptions, Needs, or Objectives introduced here. NO
+  %% Injection, NBR, or FRT — diagnosis only, per the stop condition
+  %% already agreed.
+  %%
+  %% ASTERISK (*) CONVENTION: marks statements describing the current
+  %% operating state of the ecosystem, expected to evolve as the
+  %% ecosystem matures (e.g. WANT D, WANT D', the Constraint itself).
+  %% Validated structural findings and causal relationships are never
+  %% marked — this includes the Dominant Structural Cause (B_ROOT), all
+  %% Clouds, all Needs, the Objective, and every edge/arrow — because
+  %% these remain valid as diagnosis regardless of whether the current
+  %% state they explain changes. SR001–SR003 are never marked.
+  %% ======================================================================
+
+  classDef box     fill:#16140f,stroke:#a89a78,color:#e9dfc3,font-size:11px,stroke-width:1.5px
+  classDef cloud    fill:#2a1010,stroke:#e05b5b,color:#fff,font-weight:bold,stroke-width:2.5px,font-size:11px
+  classDef hub      fill:#1B2A4A,stroke:#D9772E,color:#fff,font-weight:bold,stroke-width:2.5px,font-size:11px
+  classDef minor    fill:#1f1c14,stroke:#6f6450,color:#8d8268,font-size:9.5px,stroke-dasharray:3 2
+  classDef finding  fill:#3a2a5c,stroke:#b79ce8,color:#fff,font-size:10.5px,font-weight:bold
+
+  CONSTRAINT["ECOSYSTEM CONSTRAINT *\nAcross all three stakeholder investigations, qualified\nsupply and qualified demand simultaneously exist —\ninformation, inventory, intent, buyers, sellers, and\nbrokers are all present — yet the ecosystem does not\nreliably convert this coexistence into qualified\nopportunities."]:::finding
+
+  subgraph BROKER["BROKER  (Broker_CRT_Readable.mermaid)"]
+    B_ROOT["Dominant structural cause (not the constraint itself):\ntrust, effort, and market knowledge exist only in\npersonal memory — no one outside that relationship\ncan observe, check, or rely on them\n(U016/017/020, U021/022)"]:::hub
+    B_CLOUD["Broker's own Internal Cloud\nProtect relationships ⟷ Increase reach"]:::cloud
+    B_ROOT --> B_CLOUD
+  end
+  class BROKER box
+
+  CONSTRAINT --> B_ROOT
+
+  subgraph SELLER["SELLER  (Seller_CRT_Readable.mermaid)"]
+    S_CLOUD["Seller's own Internal Cloud\nEnough exposure ⟷ One trusted broker"]:::cloud
+  end
+  class SELLER box
+
+  subgraph BUYER["BUYER  (Buyer_CRT_Readable.mermaid)"]
+    Y_CLOUD["Buyer's own Internal Cloud\nSee everything ⟷ One trusted guide"]:::cloud
+  end
+  class BUYER box
+
+  %% ── Forward dependencies: Broker's dominant structural cause is what
+  %% produces the other
+  %% two Clouds in the first place (Broker_Seller_Interaction.mermaid,
+  %% Broker_Buyer_Interaction.mermaid — links 1-3 in each) ──────────────
+  B_ROOT ==>|"produces\n(Broker↔Seller, links 1–3)"| S_CLOUD
+  B_ROOT ==>|"produces\n(Broker↔Buyer, links 1–3)"| Y_CLOUD
+
+  %% ── Reinforcing loops: three independent mechanisms all closing back
+  %% onto the SAME dominant structural cause — this is the central finding ─
+  BB_LOOP["Broker↔Broker reinforcement:\nother brokers behaving the same\nway — no new Cloud"]:::minor
+  B_ROOT -.-> BB_LOOP
+  BB_LOOP -.->|"reinforces"| B_ROOT
+  S_CLOUD -.->|"Broker↔Seller closes\n(Seller hedges → duplicate\neffort → reinforces dominant\nstructural cause)"| B_ROOT
+  Y_CLOUD -.->|"Broker↔Buyer closes\n(Buyer shops around →\nduplicate effort →\nreinforces dominant\nstructural cause)"| B_ROOT
+
+  %% ── Seller↔Buyer: shown, explicitly minor, non-driving ─────────────
+  Y_MINOR["Buyer search volume →\nSeller communication overload"]:::minor
+  S_MINOR["one-directional, no loop,\nno new Cloud (Seller_Buyer_\nInteraction.mermaid, COMPLETE)"]:::minor
+  Y_CLOUD -.- Y_MINOR
+  Y_MINOR -.-> S_CLOUD
+  S_CLOUD -.- S_MINOR
+
+  %% ── The finding ──────────────────────────────────────────────────
+  FINDING["ONE dominant ecosystem-level constraint, not three.\nBroker's dominant structural cause — trust, effort, and\nknowledge existing only in personal memory, unobservable\noutside that relationship — is independently\nreinforced by three separate mechanisms: other brokers\nbehaving the same way, sellers rationally hedging against\nit, and buyers rationally shopping around it. Seller's and\nBuyer's own Clouds are genuine, independently-derived\nstructures — not mirrors of Broker's — but both are produced\nand then reinforced by the same dominant structural cause.\nSeller↔Buyer direct interaction does not compete with this\nfinding; it is confirmed non-driving. SR003 (trust-mediated\ntransactions) is independently confirmed as a recurring\nboundary across all three stakeholders, not a one-off\nattribution."]:::finding
+
+  B_CLOUD -.-> FINDING
+  S_CLOUD -.-> FINDING
+  Y_CLOUD -.-> FINDING
+
+  %% ======================================================================
+  %% ECOSYSTEM CLOUD — derived solely from already-validated elements.
+  %% No new UDEs. The Objective is the Constraint restated positively.
+  %% The two Needs are not new: they are the same pattern already
+  %% present, independently, in all three stakeholder Clouds — stated
+  %% once at the level it actually belongs, not invented. The
+  %% Assumption sustaining the Cloud (classic TOC vocabulary) is not new
+  %% either — B_ROOT, this investigation's "dominant structural cause,"
+  %% already is it. No second,
+  %% symmetric assumption was manufactured — see explanation above.
+  %% ======================================================================
+
+  ECO_OBJ["ECOSYSTEM OBJECTIVE\n(the Constraint, restated positively)\nReliably convert existing qualified supply\nand demand into qualified opportunities"]:::finding
+
+  ECO_B["ECOSYSTEM NEED B\nQualified reach: the right supply must\nreach the right demand — not\nnecessarily the widest possible audience"]:::cloud
+  ECO_C["ECOSYSTEM NEED C\nTrusted representation: effort and\nclaims must be attributable to a\nspecific, verifiable, accountable party"]:::cloud
+
+  ECO_OBJ --> ECO_B
+  ECO_OBJ --> ECO_C
+
+  %% Needs B and C do NOT conflict with each other — this is the
+  %% corrected finding. The conflict lives one level down, at the
+  %% Want/strategy level, where B_ROOT forces each Need toward a
+  %% tactic that happens to undermine the other.
+
+  ECO_D["WANT D * (currently serves Need B)\nBroaden exposure as widely as possible,\nthen filter for relevance afterward —\nthe only available strategy when relevance\ncannot currently be established beforehand"]:::hub
+  ECO_DPRIME["WANT D' * (currently serves Need C)\nKeep representation narrow and\nexclusive — the only available strategy\nwhen trust currently cannot extend beyond\none personal relationship"]:::hub
+
+  ECO_B -->|"currently requires"| ECO_D
+  ECO_C -->|"currently requires"| ECO_DPRIME
+
+  B_ROOT ==>|"is why D is currently\nthe only way to serve B"| ECO_D
+  B_ROOT ==>|"is why D' is currently\nthe only way to serve C"| ECO_DPRIME
+
+  ECO_CLOUD["ECOSYSTEM CLOUD  (5-box form)\nWant D  ⟷  Want D'\nBroaden exposure, filter after   vs   Keep\nrepresentation narrow and exclusive\n\nNeeds B and C are NOT in conflict — both are\nblocked by the same dominant structural cause\n(B_ROOT). The conflict lives entirely at the\nWant/strategy level: the only currently-available\ntactic for each Need happens to directly undermine\nthe other. Broadening exposure (D) exposes\ninformation to parties outside the current trusted\nrelationship, destroying the exclusivity D' depends\non; narrowing to protect accountability (D') caps\nthe reach D requires."]:::cloud
+
+  ECO_D --> ECO_CLOUD
+  ECO_DPRIME --> ECO_CLOUD
+
+  %% Stakeholder Clouds are instances of the WANT-level conflict, not
+  %% the Need level — "protect relationships vs. increase reach" etc.
+  %% are themselves already strategies, not fundamental needs, per the
+  %% same unpacking applied here. Stakeholder CRTs remain frozen and
+  %% unmodified; this reclassifies what they were already showing.
+  B_CLOUD -.->|"instance of"| ECO_CLOUD
+  S_CLOUD -.->|"instance of"| ECO_CLOUD
+  Y_CLOUD -.->|"instance of"| ECO_CLOUD
+
+  %% ======================================================================
+  %% STOP CONDITION HONORED: no Injection, no NBR, no FRT, no product
+  %% architecture below this line. This file ends at diagnosis.
+  %% ======================================================================

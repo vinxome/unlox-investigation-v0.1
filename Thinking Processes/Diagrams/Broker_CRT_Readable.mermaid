@@ -1,0 +1,125 @@
+---
+title: "Broker / Aggregator — Representative CRT  |  Readable"
+---
+flowchart TB
+
+  %% ======================================================================
+  %% Broker_CRT_Readable.mmd
+  %% ======================================================================
+  %% Rebuilt per readability critique: no synthesized "Trunk UDE", no
+  %% source_wall_ids inside the diagram. The chain is shown explicitly,
+  %% step by step, the way Goldratt drew CRTs — meant to be read and
+  %% argued with, not decoded.
+  %%
+  %% VOICE: causal steps stay in first person (the Wall's own voice) —
+  %% forcing third person onto every intermediate step was part of what
+  %% made the last version feel translated rather than true. The
+  %% structural labels (OBJECTIVE / NEED / CLOUD) carry the systems
+  %% vocabulary; the content in between stays close to lived experience.
+  %%
+  %% NODE STYLE KEY:
+  %%   solid border  = a direct statement from the Wall (traceable to a
+  %%                   specific UDE — see the invisible comment block
+  %%                   at the end of this file for the mapping)
+  %%   dashed border = an inferred connecting step (the analyst's IF/THEN
+  %%                   reasoning linking two Wall statements) — not
+  %%                   itself a Wall UDE
+  %%
+  %% This is the REPRESENTATIVE Broker CRT — one archetype standing in
+  %% for the whole population until investigation reveals a real fork.
+  %% U027 ("as a newer broker, I can't access the inventory or
+  %% relationships established brokers have") deliberately does NOT
+  %% appear in this chain: it's population-specific to newer brokers,
+  %% not something every broker experiences, and forcing it in here
+  %% would blur an archetype-level distinction this CRT isn't meant to
+  %% carry yet. It's the flag that tells us when to fork this box into
+  %% New / Small / Large Broker archetypes — see closing comment.
+  %% ======================================================================
+
+  classDef obj   fill:#e8b84b,stroke:#7a5c14,color:#2a2620,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef need  fill:#3f6f5e,stroke:#a6d9c4,color:#fff,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef wall  fill:#e9dfc3,stroke:#52493a,color:#2a2620,font-size:11px
+  classDef inferred fill:#e9dfc3,stroke:#8d8268,color:#2a2620,font-size:11px,stroke-dasharray:4 3
+  classDef shared fill:#d7d4ba,stroke:#52493a,color:#2a2620,font-size:11px,stroke-width:2px
+  classDef cloud fill:#2a1010,stroke:#e05b5b,color:#fff,font-weight:bold,stroke-width:2.5px,font-size:12px
+
+  OBJ["OBJECTIVE\nMaintain a thriving brokerage practice"]:::obj
+
+  N1["NEED\nI need to protect my client relationships"]:::need
+  N2["NEED\nI need to increase my reach"]:::need
+  OBJ --> N1
+  OBJ --> N2
+
+  %% ── BRANCH 1: protecting relationships ──────────────────────────
+  B1["Because trust and market knowledge only work\nwithin my own circle and don't transfer, I keep my\nrelationships and inventory knowledge to myself\nrather than share them"]:::inferred
+  N1 --> B1
+
+  B1a["I miss out on deals I could've co-brokered\nsimply because I never heard about them"]:::wall
+  B1b["I find myself doing the same work other\nbrokers have already done, without knowing it"]:::wall
+  B1c["My inventory stays scattered across sources,\nand when a client or contact moves on, all the\nknowledge I built with them just disappears"]:::wall
+  B1 --> B1a
+  B1 --> B1b
+  B1 --> B1c
+
+  B1d["My reach and efficiency stay limited\nto what I can personally cover"]:::inferred
+  B1a --> B1d
+  B1b --> B1d
+  B1c --> B1d
+
+  B1e["I can't easily show online what I\nactually know or bring to a deal"]:::wall
+  B1d --> B1e
+
+  %% ── BRANCH 2: increasing reach ───────────────────────────────────
+  B2a["My client relationships don't scale —\nI can only personally handle so many at once"]:::wall
+  N2 --> B2a
+
+  B2b["I can't personally build enough relationships\nto reach further on my own"]:::inferred
+  B2a --> B2b
+
+  %% ── SHARED CONSEQUENCES: both branches converge here ────────────
+  PORTAL["Portals control who sees my listings —\nif I don't pay for placement, I barely get seen"]:::shared
+  B1e --> PORTAL
+  B2b --> PORTAL
+
+  BRAND["My discoverability isn't as good as\nproperty portals' or other aggregated\ndiscovery channels, and being on the\nplatform doesn't get more valuable\nas more people join"]:::shared
+  PORTAL --> BRAND
+
+  B2c["I lose long-term bargaining power —\nthe portal controls my access to buyers,\nnot the other way around"]:::inferred
+  BRAND --> B2c
+
+  %% ── CLOUD ─────────────────────────────────────────────────────────
+  CLOUD["CLOUD\nProtect my relationships   ⟷   Increase my reach\n\nBoth paths lead to the same place: portal\ndependence and a weaker position than I started\nwith. Protecting relationships starves my reach;\nchasing reach hands control of that reach to a\nplatform. Neither need can be pursued without\nundermining the other."]:::cloud
+
+  B1e --> CLOUD
+  B2c --> CLOUD
+
+  %% ======================================================================
+  %% TRACEABILITY (invisible when rendered — visible in source only)
+  %% Wall ID → node it supports:
+  %%   U016, U017 → B1  (trust/knowledge don't transfer, stay siloed)
+  %%   U024      → B1a (missed co-broking)
+  %%   U025      → B1b (duplicate effort)
+  %%   U013, U014, U026 → B1c (fragmented/manual inventory; knowledge
+  %%                            lost when a contact leaves)
+  %%   U018, U019 → evidence underlying B1d (discovery only via personal
+  %%                contacts; reach limited to own network)
+  %%   U020      → B1e (can't demonstrate expertise digitally)
+  %%   U015      → B2a (relationships don't scale)
+  %%   U021, U022 → PORTAL (portals control visibility; pay-to-play)
+  %%   U023, U028 → BRAND (no network-effect benefit; discoverability gap)
+  %%
+  %% NOT USED in this representative chain:
+  %%   U027 — population-specific to newer brokers; see file header note.
+  %%           Signal to fork this box into New/Small/Large Broker
+  %%           archetypes once that population is actually investigated,
+  %%           rather than forcing it into the representative chain.
+  %%
+  %% Assumptions sustaining the Cloud (implicit in the chain above,
+  %% stated explicitly here for methodological completeness):
+  %%   A1: Sharing or systematizing relationships/track record beyond
+  %%       my own private records means losing what differentiates me
+  %%       and losing control over my clients and commissions.
+  %%   A2: The only ways to reach further than my personal network are
+  %%       to depend on a platform or to personally sustain more
+  %%       relationships than is realistic.
+  %% ======================================================================

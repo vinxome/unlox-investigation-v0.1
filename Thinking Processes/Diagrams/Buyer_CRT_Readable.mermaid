@@ -1,0 +1,137 @@
+---
+title: "Buyer — Representative CRT  |  Readable"
+---
+flowchart TB
+
+  %% ======================================================================
+  %% Buyer_CRT_Readable.mmd
+  %% ======================================================================
+  %% Built to the same standard as Broker_CRT_Readable and
+  %% Seller_CRT_Readable: explicit IF/THEN chain, no synthesized trunk,
+  %% wall statements in first person, inferred links shown separately
+  %% (dashed), provenance in invisible comments at the end. The Cloud
+  %% below was not searched for — it fell out of tracing all 20 active
+  %% Buyer UDEs and finding where the chain naturally converged.
+  %%
+  %% NODE STYLE KEY (same convention as Broker/Seller):
+  %%   solid border  = a direct statement from the Wall
+  %%   dashed border = an inferred connecting step, not itself a Wall UDE
+  %%
+  %% All 20 active Buyer UDEs placed. Unlike Seller, nothing required
+  %% flagging as terminating at a Structural Reality instead of the
+  %% Cloud — noted as an honest difference, not forced for symmetry.
+  %% ======================================================================
+
+  classDef obj   fill:#e8b84b,stroke:#7a5c14,color:#2a2620,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef need  fill:#3f6f5e,stroke:#a6d9c4,color:#fff,font-weight:bold,stroke-width:2px,font-size:12px
+  classDef wall  fill:#e9dfc3,stroke:#52493a,color:#2a2620,font-size:11px
+  classDef inferred fill:#e9dfc3,stroke:#8d8268,color:#2a2620,font-size:11px,stroke-dasharray:4 3
+  classDef cloud fill:#2a1010,stroke:#e05b5b,color:#fff,font-weight:bold,stroke-width:2.5px,font-size:12px
+
+  OBJ["OBJECTIVE\nFind and buy a property that's right for me,\nwith confidence in the price and the process"]:::obj
+
+  N1["NEED\nI need to see everything available,\nso I don't miss the right property"]:::need
+  N2["NEED\nI need one coherent, trustworthy source\nguiding me through the whole process"]:::need
+  OBJ --> N1
+  OBJ --> N2
+
+  %% ── BRANCH 1: broad search ─────────────────────────────────────────
+  BS1["I have to search across so many\ndifferent apps and sites just to\nsee what's available"]:::wall
+  N1 --> BS1
+
+  BS2["Every time I switch platforms, I have\nto start over — none of my history or\npreferences carry over"]:::wall
+  BS3["The listings I see first aren't the best\nfit for me — they're just the ones someone\npaid to put on top"]:::wall
+  BS1 --> BS2
+  BS1 --> BS3
+
+  STALE["Checking so many separate,\nuncoordinated places means some of\nwhat I see is stale or a poor match"]:::inferred
+  BS2 --> STALE
+  BS3 --> STALE
+
+  BS4["I message about a property only to\nfind out it was sold or rented weeks ago"]:::wall
+  BS5["I keep missing properties that would've\nbeen perfect for me — I just never\nsaw them in time"]:::wall
+  STALE --> BS4
+  STALE --> BS5
+
+  DIY["I end up doing all the work of finding,\nchecking, and comparing everything myself"]:::inferred
+  BS4 --> DIY
+  BS5 --> DIY
+
+  BS6["Searching eats up hours of my time, and\nI end up doing the same searches over\nand over"]:::wall
+  BS7["Comparing my options means building my\nown spreadsheets and doing all the\nlegwork myself"]:::wall
+  BS8["I can't easily put two properties\nside by side and compare them fairly"]:::wall
+  DIY --> BS6
+  DIY --> BS7
+  DIY --> BS8
+
+  %% ── BRANCH 2: trust one source ───────────────────────────────────────
+  INCONSIST["Because different sources tell me\ndifferent things, I can't just settle\non trusting one"]:::inferred
+  N2 --> INCONSIST
+
+  TR1["One listing tells me one thing, another\ntells me something completely different —\nI can't tell which one to trust"]:::wall
+  TR2["I have no easy way to check if what a\nlisting says about a property is\nactually true"]:::wall
+  TR3["I can't tell who's actually trustworthy —\nbrokers, portals, sellers all look the\nsame to me on paper"]:::wall
+  INCONSIST --> TR1
+  INCONSIST --> TR2
+  INCONSIST --> TR3
+
+  DOUBLECHECK["So I keep having to double-check\neverything myself, and feel like everyone\naround me already knows more than I do"]:::inferred
+  TR1 --> DOUBLECHECK
+  TR2 --> DOUBLECHECK
+  TR3 --> DOUBLECHECK
+
+  TR4["I feel like everyone else — the broker,\nthe seller — knows more about the\nmarket than I do"]:::wall
+  TR5["I have to explain what I'm looking for\nover and over again to every new\nbroker or agent I talk to"]:::wall
+  DOUBLECHECK --> TR4
+  DOUBLECHECK --> TR5
+
+  NOGUIDE["Even once I'm actually buying, there's no\none consistent party pulling it all\ntogether for me"]:::inferred
+  TR5 --> NOGUIDE
+
+  TR6["Everyone I talk to — brokers, banks,\nagents — tells me something different,\nand I don't know who to believe"]:::wall
+  TR7["I have no real way of knowing if the\nasking price is fair or if I'm\nbeing overcharged"]:::wall
+  TR8["Getting the broker, the bank, and the\nseller all on the same page keeps\ncausing delays I can't control"]:::wall
+  TR9["I keep having to fill out the same forms\nand hand over the same documents at\nevery step of the purchase"]:::wall
+  TR10["I don't understand my financing options\nuntil I'm already deep into the\nbuying process"]:::wall
+  TR11["I'm never sure if I'll actually qualify\nfor the loan I need until very\nlate in the process"]:::wall
+  TR12["Once the deal is in motion, I have no\nidea what stage it's actually at or\nwhat happens next"]:::wall
+  NOGUIDE --> TR6
+  NOGUIDE --> TR7
+  NOGUIDE --> TR8
+  NOGUIDE --> TR9
+  NOGUIDE --> TR10
+  NOGUIDE --> TR11
+  NOGUIDE --> TR12
+
+  %% ── CLOUD ─────────────────────────────────────────────────────────
+  CLOUD["CLOUD\nSee everything available   ⟷   One trustworthy, coordinated guide\n\nSearching broadly to avoid missing anything\nis exactly what produces the inconsistency\nand noise that stops me from confidently\nsettling on one guide. Settling on one guide\nrisks missing what exists outside their view.\nNeither path resolves the anxiety."]:::cloud
+
+  BS6 --> CLOUD
+  BS7 --> CLOUD
+  BS8 --> CLOUD
+  TR6 --> CLOUD
+  TR7 --> CLOUD
+  TR8 --> CLOUD
+  TR9 --> CLOUD
+  TR10 --> CLOUD
+  TR11 --> CLOUD
+  TR12 --> CLOUD
+
+  %% ======================================================================
+  %% TRACEABILITY (invisible when rendered — visible in source only)
+  %%   U001→BS1  U011→BS2  U012→BS3  U006→BS4  U002→BS5
+  %%   U003→BS6  U009→BS7  U123→BS8
+  %%   U004→TR1  U005→TR2  U007→TR3  U008→TR4  U010→TR5
+  %%   U124→TR6  U125→TR7  U126→TR8  U127→TR9  U128→TR10
+  %%   U129→TR11  U130→TR12
+  %%
+  %% All 20 active Buyer UDEs placed. None flagged as unresolved.
+  %%
+  %% Assumptions sustaining the Cloud (identified AFTER the Cloud
+  %% emerged from the chain, not before):
+  %%   A1: The only way to make sure I don't miss the right property
+  %%       is to check as many different sources as I can myself.
+  %%   A2: If I settle on just one broker/source to trust and
+  %%       coordinate everything, I risk missing properties or deals
+  %%       that exist outside what that one source shows me.
+  %% ======================================================================
